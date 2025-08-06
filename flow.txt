@@ -1,0 +1,36 @@
+1. Clone Repository
+git clone https://github.com/oceanboys24/ebdesk-test
+cd repo
+
+2. Tambahkan File sample.txt dan Commit ke main
+echo "Ini adalah file sample.txt" > sample.txt
+git add sample.txt
+git commit -m "create file sample.txt"
+git push origin main
+
+3. Simulasi Merge Conflict
+a. Buat branch-1 & edit conflict.txt
+git checkout -b branch-1
+echo "Edit dari branch-1" > conflict.txt
+git add conflict.txt
+git commit -m "Edit dari branch-1"
+git push origin branch-1
+
+b. Kembali ke main & buat branch-2 & edit file yang sama
+git checkout main
+git checkout -b branch-2
+echo "Edit dari branch-2" > conflict.txt
+git add conflict.txt
+git commit -m "Edit dari branch-2"
+git push origin branch-2
+
+c. Merge branch-1 ke branch-2 (akan terjadi konflik)
+git merge branch-1
+
+d. Selesaikan Konflik Merge
+Buka file conflict.txt → Edit Filenya.
+
+Setelah edit, jalankan:
+git add conflict.txt
+git commit -m "Resolve conflict antara branch-1 dan branch-2"
+git push origin branch-2
